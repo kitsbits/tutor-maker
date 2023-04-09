@@ -43,6 +43,7 @@ export default function Post({
   stringifiedData,
 }: PostProps) {
   const router = useRouter();
+  console.log(router)
   if (router.isFallback) return <Loader />;
 
   const data = JSON.parse(stringifiedData) as _SiteSlugData & {
@@ -157,6 +158,7 @@ export default function Post({
 }
 
 export const getStaticPaths: GetStaticPaths<PathProps> = async () => {
+  console.log('STATIC PATHS');
   const posts = await prisma.post.findMany({
     where: {
       published: true,
@@ -211,6 +213,7 @@ export const getStaticPaths: GetStaticPaths<PathProps> = async () => {
 export const getStaticProps: GetStaticProps<PostProps, PathProps> = async ({
   params,
 }) => {
+  console.log('STATIC PROPS');
   if (!params) throw new Error("No path parameters found");
 
   const { site, slug } = params;

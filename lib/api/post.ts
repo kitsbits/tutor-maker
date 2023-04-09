@@ -41,6 +41,7 @@ export async function getPost(
     return res.status(400).end("Bad request. Query parameters are not valid.");
 
   try {
+    console.log("postId", postId);
     if (postId) {
       const post = await prisma.post.findFirst({
         where: {

@@ -187,6 +187,7 @@ export default function Post() {
           slug: post?.slug,
         }),
       });
+      console.log({ postId });
 
       if (response.ok) {
         mutate(`/api/post?postId=${postId}`);

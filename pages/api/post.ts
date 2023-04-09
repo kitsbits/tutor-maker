@@ -26,6 +26,7 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
         HttpMethod.DELETE,
         HttpMethod.PUT,
       ]);
+      console.log("HERE BAD");
       return res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }
